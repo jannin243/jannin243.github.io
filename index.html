@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChocoCake Pastelería</title>
+    <link rel="icon" type="" href="imagen/logo.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Eliminamos el background-color del body */
+        body {
+            position: relative;
+        }
+
+        /* Patrón de líneas para usar en múltiples elementos */
+        .striped-background {
+            background-image: repeating-linear-gradient(
+                to right,
+                #E6F3FF 0%,
+                #E6F3FF 6.66%,
+                #FFE6F0 6.66%,
+                #FFE6F0 13.32%,
+                #FFFFFF 13.32%,
+                #FFFFFF 20%
+            );
+            background-size: 100% 100%;
+        }
+
+        .navbar {
+            background-color: #c58484;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .navbar-logo {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .navbar select {
+            width: 200px;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .section {
+            display: none;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .content-wrapper {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 1rem auto;
+            display: block;
+        }
+
+        .intro-text {
+            text-align: center;
+            margin: 2rem 0;
+            line-height: 1.6;
+        }
+
+        .mission-vision {
+            margin: 2rem 0;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pasteles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .pastel-card {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .pastel-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .contacto {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contacto p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        h1, h2 {
+            color: #c58484;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+            color: #c58484;
+            font-size: 0.9rem;
+            border-top: 1px solid #c58484;
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Contenedor principal que ocupará toda la pantalla */
+        .main-container {
+            min-height: 100vh;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container striped-background">
+        <nav class="navbar">
+            <img src="imagen/logo.jpg" alt="Logo ChocoCake" class="navbar-logo">
+            <select id="nav-select" onchange="showSection(this.value)">
+                <option value="inicio">Inicio</option>
+                <option value="quienes-somos">Quiénes Somos</option>
+                <option value="pasteles">Pasteles</option>
+                <option value="contacto">Contacto</option>
+            </select>
+        </nav>
+
+        <div id="inicio" class="section">
+            <div class="content-wrapper">
+                <h1>Bienvenidos a ChocoCake</h1>
+                <img src="imagen/logo.jpg" alt="Logo ChocoCake" class="logo">
+                <div class="intro-text">
+                    <p>En ChocoCake, nos dedicamos a endulzar tus momentos especiales con las más deliciosas creaciones de repostería artesanal. Desde 2015, hemos estado elaborando pasteles que no solo son un deleite al paladar, sino también una obra de arte para la vista.</p>
+                    <p>Cada uno de nuestros pasteles está elaborado con ingredientes de la más alta calidad y con el amor y dedicación que caracteriza nuestra marca. Nos enorgullece ser parte de tus celebraciones y momentos especiales.</p>
+                </div>
+        
+                <!-- Video centrado -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <video width="640" height="360" controls>
+                        <source src="imagen/Harper - Vestido (1).mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+        
+                <!-- Enlace al juego de Scratch -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <h2>INGRESO AL JUEGO DE SCRATCH</h2>
+                    <a href="https://scratch.mit.edu/projects/1097174671" target="_blank" 
+                        style="font-size: 1.2rem; color: #c58484; text-decoration: none;">
+                        Haz clic aquí para jugar
+                    </a>
+                </div>
+        
+                <!-- Enlace de Kahoot -->
+                <div style="text-align: center; margin-top: 20px;">
+                    <h2>INGRESO AL KAHOOT</h2>
+                    <a href="https://create.kahoot.it/details/a238fdbb-81da-40e2-9763-5c6cfaf0601d" target="_blank" 
+                        style="font-size: 1.2rem; color: #c58484; text-decoration: none;">
+                        Haz clic aquí para ingresar
+                    </a>
+                </div>
+        
+                <div class="footer">
+                    © 2024 ChocoCake. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+        
+        
+        
+
+        <div id="quienes-somos" class="section">
+            <div class="content-wrapper">
+                <h1 class="text-center">Quiénes Somos</h1>
+                <div class="flex justify-center">
+                    <img src="imagen/logo.jpg" alt="Logo ChocoCake" class="logo">
+                </div>
+        
+                <div class="mission-vision">
+                    <h2 class="text-center">Misión</h2>
+                    <p class="text-center">Crear experiencias dulces inolvidables a través de productos de repostería de la más alta calidad, combinando la tradición con la innovación, y siempre manteniendo el compromiso con la excelencia y la satisfacción de nuestros clientes.</p>
+        
+                    <h2 class="text-center">Visión</h2>
+                    <p class="text-center">Ser reconocidos como la pastelería líder en innovación y calidad a nivel nacional, expandiendo nuestra presencia mientras mantenemos la esencia artesanal que nos caracteriza, y contribuyendo a crear momentos de felicidad en cada bocado.</p>
+        
+                    <h2 class="text-center">Objetivos</h2>
+                    <ul class="text-center">
+                        <li>Crear experiencias dulces y memorables para nuestros clientes a través de nuestros productos de repostería artesanal.</li>
+                        <li>Innovar constantemente en nuestras recetas y técnicas de elaboración, manteniendo siempre la excelencia en calidad.</li>
+                        <li>Expandir nuestra presencia a nivel nacional, conservando la esencia artesanal que nos caracteriza.</li>
+                        <li>Contribuir a generar momentos de felicidad y celebración en cada uno de los hogares que disfrutan de nuestros pasteles.</li>
+                    </ul>
+        
+                    <h2 class="text-center">Introducción</h2>
+                    <p class="text-center">ChocoCake es una pastelería artesanal que fue fundada en 2015 con la misión de endulzar los momentos especiales de nuestros clientes. Desde entonces, nos hemos dedicado a la elaboración de pasteles y dulces de la más alta calidad, utilizando ingredientes cuidadosamente seleccionados y técnicas tradicionales que se han perfeccionado con el paso de los años.</p>
+        
+                    <h2 class="text-center">Sobre la Empresa</h2>
+                    <p class="text-center">En ChocoCake, nuestro compromiso va más allá de simplemente ofrecer postres deliciosos. Nos esforzamos por crear una conexión única entre nuestros clientes y nuestros productos, buscando que cada bocado sea una experiencia sensorial y emocional que trascienda lo meramente físico. Nuestra pasión por la repostería artesanal nos ha llevado a innovar constantemente, sin perder nunca de vista nuestros valores de excelencia, dedicación y servicio al cliente.</p>
+                </div>
+        
+                <!-- Enlace para descargar o visualizar el PDF -->
+                <div class="text-center" style="margin-top: 2rem;">
+                    <a href="https://www.canva.com/design/DAGWkM7rQG8/1F5nwxKbQZypyrSfgBEb3w/edit?utm_content=DAGWkM7rQG8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" style="color: #c58484; text-decoration: none; font-size: 1.2rem;">
+                        📄 Descargar o Ver Presentación en PDF
+                    </a>
+                </div>
+        
+                <div class="footer text-center">
+                    © 2024 ChocoCake. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="pasteles" class="section">
+            <div class="content-wrapper">
+                <h1>Nuestros Pasteles</h1>
+                <div class="pasteles-grid">
+                    <div class="pastel-card">
+                        <img src="imagen/1.jpg" alt="Pastel 1">
+                        <h3>Torta de Chocolate Belga</h3>
+                        <p>Deliciosa torta de chocolate belga con relleno de ganache y decoración de chocolate premium</p>
+                        <p><strong>Precio: $85.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/2.jpg" alt="Pastel 2">
+                        <h3>Cheesecake de Frutos Rojos</h3>
+                        <p>Suave cheesecake horneado con cobertura de frutos rojos frescos y base de galleta</p>
+                        <p><strong>Precio: $75.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/3.jpg" alt="Pastel 3">
+                        <h3>Torta Tres Leches</h3>
+                        <p>Esponjosa torta bañada en tres tipos de leche con cobertura de merengue italiano</p>
+                        <p><strong>Precio: $65.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/4.jpg" alt="Pastel 4">
+                        <h3>Feliz cumpleaños</h3>
+                        <p>Clásica torta de chocolate con mora y crema chantilly decorada con crema de vainilla mora</p>
+                        <p><strong>Precio: $80.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/5.jpg" alt="Pastel 5">
+                        <h3>Torta Red Velvet</h3>
+                        <p>Suave bizcocho rojo con relleno de cream cheese y decoración elegante</p>
+                        <p><strong>Precio: $90.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/6.jpg" alt="Pastel 6">
+                        <h3>Torta de elefante</h3>
+                        <p>Deliciosa torta sabor zanahoria y chicle, con un elefante de dulce</p>
+                        <p><strong>Precio: $70.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/7.jpg" alt="Pastel 7">
+                        <h3>Galleta de mantequilla</h3>
+                        <p>Tiene mantequilla</p>
+                        <p><strong>Precio: $5.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/8.jpg" alt="Pastel 8">
+                        <h3>Galletas</h3>
+                        <p>Forma de corazón</p>
+                        <p><strong>Precio: $5.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/9.jpg" alt="Pastel 9">
+                        <h3>Paleta de chocolate</h3>
+                        <p>Con chocolate</p>
+                        <p><strong>Precio: $6.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/10.jpg" alt="Pastel 10">
+                        <h3>Corazon de chocolate blanco</h3>
+                        <p>Relleno de torta de mini chips</p>
+                        <p><strong>Precio: $10.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/11.jpg" alt="Pastel 11">
+                        <h3>Cookies</h3>
+                        <p>En pastillas</p>
+                        <p><strong>Precio: $10.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/12.jpg" alt="Pastel 12">
+                        <h3>Corazon de chocolate</h3>
+                        <p>Corazon de chocolate blanco</p>
+                        <p><strong>Precio: $10.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/13.jpg" alt="Pastel 13">
+                        <h3>Caja de culces</h3>
+                        <p>Dulces aleatorios</p>
+                        <p><strong>Precio: $8.000</strong></p>
+                    </div>
+                    <div class="pastel-card">
+                        <img src="imagen/14.jpg" alt="Pastel 14">
+                        <h3>Brownies</h3>
+                        <p>Aleatorio</p>
+                        <p><strong>Precio: $10.000</strong></p>
+                    </div>
+                </div>
+                <div class="footer">
+                    © 2024 ChocoCake. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+
+        <div id="contacto" class="section">
+            <div class="content-wrapper">
+                <h1>Contacto</h1>
+                <div class="contacto">
+                    <p>📱 Número de celular: +57 313 545 38 58</p>
+                    <p>💬 WhatsApp: +57 313 545 38 58</p>
+                    <p>📧 Correo: jkaterinemendez@uts.edu.co</p>
+                    <button onclick="window.location.href='https://wa.me/qr/FDPJPXLKPYF5L1'">Enviar mensaje por WhatsApp</button>
+                </div>
+                <div class="footer">
+                    © 2024 ChocoCake. Todos los derechos reservados.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById('nav-select').value = sectionId;
+            localStorage.setItem('currentSection', sectionId);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedSection = localStorage.getItem('currentSection');
+            if (savedSection) {
+                showSection(savedSection);
+            } else {
+                showSection('inicio');
+            }
+        });
+    </script>
+</body>
+</html>
